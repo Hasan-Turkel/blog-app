@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import Card from "../components/blog/Card"
 
 
 const Dashboard = () => {
@@ -9,14 +10,16 @@ const getCard = async() => {
   const {data} = await axios(`${BASE_URL}api/blogs`)
   setData(data)
 }
-console.log(data);
+
 useEffect(() => {
   getCard()
 
 }, [])
 
   return (
-    <div>Dashboard</div>
+    <div>
+      {data?.map((item, i)=>(<Card key={item.id} data={data} i={i}/>))}
+    </div>
   )
 }
 

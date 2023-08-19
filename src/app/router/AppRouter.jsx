@@ -10,6 +10,7 @@ import NewBlog from "../pages/NewBlog"
 import About from "../pages/About"
 import MyBlogs from "../pages/myBlogs"
 import Profile from "../pages/Profile"
+import Detail from "../pages/Detail"
 
 
 const AppRouter = () => {
@@ -18,6 +19,7 @@ const AppRouter = () => {
         <Navbar/>
       <Routes>
         <Route path="/" element={<Dashboard />} />
+        <Route path="detail/id" element={<Detail />} />
         <Route path="register" element={<Register />} />
         <Route path="login" element={<Login/>} />
         <Route path="new-blog" element={<NewBlog />} />
