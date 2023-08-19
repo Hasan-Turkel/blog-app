@@ -3,3 +3,12 @@ footer{
     bottom: 0;
     background-color: cadetblue;
 }
+li{
+    list-style-type: none;
+}
+.navbar{
+    padding-right: 60px;
+    background-color: cadetblue;
+
+   
+}
