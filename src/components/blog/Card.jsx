@@ -24,7 +24,7 @@ const Card = ({data, i}) => {
     <div>
 
 
-    <button  className="btn btn-primary" onClick={()=>navigate(`detail/${data[i].title.toLowerCase()}`)}>
+    <button  className="btn btn-primary" onClick={()=>navigate(`detail/${data[i].id}`)}>
       Read More
     </button>
     </div>
