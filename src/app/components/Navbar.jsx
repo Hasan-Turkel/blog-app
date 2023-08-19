@@ -1,10 +1,12 @@
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
+
+  const user = "1"
   return (
-    <nav className="navbar navbar-expand-lg d-flex ">
-  <div className="container-fluid">
-    <NavLink className="navbar-brand" to="#">
+    <nav className="navbar navbar-expand-lg ">
+  <div className="container-fluid ">
+    <NavLink className="navbar-brand" to="/">
       <h2>BLOG-APP</h2>
     </NavLink>
     <button
@@ -19,14 +21,14 @@ const Navbar = () => {
       <span className="navbar-toggler-icon" />
     </button>
     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div className="navbar-nav">
-        <NavLink className="nav-link active" aria-current="page" to="#">
+      <div className="navbar-nav fs-5">
+        <NavLink className="nav-link active" aria-current="page" to="/">
           Dashoard
         </NavLink>
-        <NavLink className="nav-link active" aria-current="page" to="#">
+        <NavLink className="nav-link active" aria-current="page" to="/new-blog">
           New Blog
         </NavLink>
-        <NavLink className="nav-link active" aria-current="page" to="#">
+        <NavLink className="nav-link active" aria-current="page" to="about">
           About
         </NavLink>
       </div>
@@ -38,32 +40,37 @@ const Navbar = () => {
     role="button"
     data-bs-toggle="dropdown"
   >
-    <img src="https://i.stack.imgur.com/lAwxR.png" class="rounded-circle" style={{width: "40px"}}
+    <img src="https://i.stack.imgur.com/lAwxR.png" className="rounded-circle" style={{width: "40px"}}
   alt="Avatar" />
   </a>
+
+  {!user?(<ul className="dropdown-menu " >
+    <li>
+      <NavLink className="dropdown-item" to="login">
+       Login
+      </NavLink>
+    </li>
+    </ul>):(
   <ul className="dropdown-menu " >
     <li>
-      <a className="dropdown-item" href="#">
-        Link
-      </a>
+      <NavLink className="dropdown-item" to="my-blogs">
+        My Blogs
+      </NavLink>
     </li>
     <li>
-      <a className="dropdown-item" href="#">
-        Another 
-      </a>
+      <NavLink className="dropdown-item" to="profile">
+        Profile 
+      </NavLink>
     </li>
     <li>
-      <a className="dropdown-item" href="#">
-        A third
-      </a>
+      <p className="dropdown-item" to="#">
+      Logout </p>
     </li>
-  </ul>
+  </ul>)}
 </li>
  </div>
   
 </nav>
-
-
 
   )
 }
