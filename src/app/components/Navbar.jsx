@@ -63,7 +63,7 @@ const Navbar = () => {
       </NavLink>
     </li>
     <li>
-      <p className="dropdown-item" to="#">
+      <p className="dropdown-item" role="button">
       Logout </p>
     </li>
   </ul>)}
