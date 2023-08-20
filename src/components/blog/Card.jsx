@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const Card = ({data, i}) => {
+const Card = ({image, title, content, publish_date, author, id}) => {
   const navigate= useNavigate()
 
     
@@ -9,22 +9,22 @@ const Card = ({data, i}) => {
     // console.log(data);
   return (
     <div className="card" style={{ width: "18rem" }}>
-  <img src={data[i].image} className="card-img-top" alt={data[i].title} />
+  <img src={image} className="card-img-top" alt={title} />
   <div className="card-body">
-    <h5 className="card-title">{data[i].title}</h5>
+    <h5 className="card-title">{title}</h5>
     <p className="card-text">
-    {data[i].content}
+    {content}
     </p>
     <p className="card-text">
-    { data[i].publish_date}
+    {publish_date}
     </p>
     <p className="card-text">
-    { data[i].author}
+    {author}
     </p>
     <div>
 
 
-    <button  className="btn btn-primary" onClick={()=>navigate(`detail/${data[i].id}`)}>
+    <button  className="btn btn-primary" onClick={()=>navigate(`detail/${id}`)}>
       Read More
     </button>
     </div>

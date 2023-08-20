@@ -18,7 +18,7 @@ useEffect(() => {
 
   return (
     <div>
-      {data?.map((item, i)=>(<Card key={item.id} data={data} i={i}/>))}
+      {data?.map((item, i)=>(<Card key={item.id} {...item} />))}
     </div>
   )
 }

@@ -1,6 +1,4 @@
 footer{
-    position: fixed;
-    bottom: 0;
     background-color: cadetblue;
 }
 li{
@@ -13,4 +11,7 @@ li{
 }
 .auth-form{
     max-width: 400px;
+}
+.detail-img{
+    width: 250px;
 }
