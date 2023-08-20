@@ -21,7 +21,7 @@ export const authSlice = createSlice({
       },
       loginSuccess: (state, action) => {
         state.loading = false;
-        state.user = action.payload?.user?.username;
+        state.user = action.payload?.user;
         state.token = action.payload?.key;
       },
       logoutSuccess: (state) => {

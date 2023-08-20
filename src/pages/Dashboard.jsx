@@ -17,7 +17,7 @@ useEffect(() => {
 }, [])
 
   return (
-    <div>
+    <div className="d-flex justify-content-center gap-4 my-5">
       {data?.map((item, i)=>(<Card key={item.id} {...item} />))}
     </div>
   )

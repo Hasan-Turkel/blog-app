@@ -15,3 +15,6 @@ li{
 .detail-img{
     width: 250px;
 }
+.card-img{
+    object-fit:contain;
+}
