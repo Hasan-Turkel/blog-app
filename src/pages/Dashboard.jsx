@@ -9,6 +9,7 @@ const [data, setData] = useState([])
 const getCard = async() => {
   const {data} = await axios(`${BASE_URL}api/blogs`)
   setData(data)
+  console.log(data);
 }
 
 useEffect(() => {
@@ -17,9 +18,11 @@ useEffect(() => {
 }, [])
 
   return (
-    <div className="d-flex justify-content-center gap-4 my-5">
-      {data?.map((item, i)=>(<Card key={item.id} {...item} />))}
+    <div className="row justify-content-center my-5 gap-4">
+      {data?.map((item)=>(<div className="col-12 col-md-4 col-lg-3"><Card  key={item.id} {...item} /></div>))}
     </div>
+
+    
   )
 }
 
