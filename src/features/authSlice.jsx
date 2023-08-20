@@ -21,8 +21,8 @@ export const authSlice = createSlice({
       },
       loginSuccess: (state, action) => {
         state.loading = false;
-        // state.user = action.payload?.user?.username;
-        // state.token = action.payload?.key;
+        state.user = action.payload?.user?.username;
+        state.token = action.payload?.key;
       },
       logoutSuccess: (state) => {
         state.loading = false;
@@ -31,8 +31,8 @@ export const authSlice = createSlice({
       },
       registerSuccess: (state, { payload }) => {
         state.loading = false;
-        // state.user = payload?.username;
-        // state.token = payload?.token;
+        state.user = payload?.username;
+        state.token = payload?.token;
         state.error = false;
   },
 

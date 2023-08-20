@@ -6,7 +6,7 @@ const Card = ({data, i}) => {
 
     
 
-    console.log(data);
+    // console.log(data);
   return (
     <div className="card" style={{ width: "18rem" }}>
   <img src={data[i].image} className="card-img-top" alt={data[i].title} />

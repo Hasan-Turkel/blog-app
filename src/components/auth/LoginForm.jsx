@@ -3,9 +3,11 @@
 import React from 'react';
 import { Formik , Form} from 'formik';
 import { object, string } from "yup"
+import useAuthCalls from '../../hooks/useAuthCalls';
 
 const LoginForm = () => {
-
+    const { login } = useAuthCalls()
+    
     const loginSchema = object({
         email: string()
           .email("Lutfen valid bir email giriniz")
@@ -27,11 +29,10 @@ const LoginForm = () => {
     <Formik
       initialValues={{ email: '', password: '' }}
       validationSchema={loginSchema}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
+      onSubmit={(values, action) => {
+        login(values)
+        action.resetForm()
+        action.setSubmitting(false)
       }}
     >
       {({

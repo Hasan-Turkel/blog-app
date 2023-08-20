@@ -1,8 +1,10 @@
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
 
-  const user = ""
+  const {user} = useSelector((state)=>state.auth)
+
   return (
     <nav className="navbar navbar-expand-lg ">
   <div className="container-fluid ">

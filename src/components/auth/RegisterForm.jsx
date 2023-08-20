@@ -1,7 +1,9 @@
 import { Formik, Form } from "formik";
 import { object, string } from "yup";
+import useAuthCalls from "../../hooks/useAuthCalls";
 
 const RegisterForm = () => {
+    const {register} = useAuthCalls()
   const loginSchema = object({
     email: string()
       .email("Lutfen valid bir email giriniz")
@@ -24,16 +26,13 @@ const RegisterForm = () => {
         initialValues={{
           username: "",
           email: "",
-          password: "",
-          image: "",
-          bio: "",
+          password: ""
         }}
         validationSchema={loginSchema}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
+        onSubmit={(values, action) => {
+            register({...values, password2:values.password})
+            action.resetForm()
+            action.setSubmitting(false)
         }}
       >
         {({
