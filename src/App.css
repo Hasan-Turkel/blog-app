@@ -10,5 +10,7 @@ li{
     padding-right: 60px;
     background-color: cadetblue;
 
-   
+}
+.auth-form{
+    max-width: 400px;
 }

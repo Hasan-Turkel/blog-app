@@ -1,8 +1,16 @@
-import React from 'react'
+
+import RegisterForm from '../components/auth/RegisterForm'
+import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
-  return (
-    <div>Register</div>
+
+  const navigate = useNavigate()
+  return (<>
+   <RegisterForm/>
+   <p className='text-center mt-3'>Do you already have an account? <span className='text-danger' role='button' onClick={()=>navigate("/login")}>Sign In</span></p>
+  
+  </>
+   
   )
 }
 

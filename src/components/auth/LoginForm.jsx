@@ -21,8 +21,9 @@ const LoginForm = () => {
       })
 
 
- return (<div>
-    <h1>Anywhere in your app!</h1>
+ return (
+ 
+    <div className="container auth-form">
     <Formik
       initialValues={{ email: '', password: '' }}
       validationSchema={loginSchema}
@@ -44,8 +45,8 @@ const LoginForm = () => {
         /* and other goodies */
       }) => (
         <Form onSubmit={handleSubmit}>
-            <label htmlFor="email" className="form-label">
-              Email address
+            <label htmlFor="email" className="form-label mt-5">
+              Email address*
              </label>
           <input
           className="form-control"
@@ -58,7 +59,7 @@ const LoginForm = () => {
           <h3>{errors.email && touched.email && errors.email}</h3>
           
           <label htmlFor="password" className="form-label">
-              Password
+              Password*
             </label>
           <input
           className="form-control"
