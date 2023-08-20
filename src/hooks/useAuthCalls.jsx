@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { fetchFail, fetchStart, loginSuccess, registerSuccess } from "../features/authSlice";
+import { fetchFail, fetchStart, loginSuccess, registerSuccess, logoutSuccess } from "../features/authSlice";
 
 const useAuthCalls = () => {
   const dispatch = useDispatch();
@@ -37,8 +37,21 @@ const useAuthCalls = () => {
       // toastErrorNotify(error.response.data.non_field_errors[0])
     }
   };
+  const logout = async () => {
+    dispatch(fetchStart());
+    try {
+      await axios.post(`${BASE_URL}users/auth/logout/`);
+      dispatch(logoutSuccess());
+      // toastSuccessNotify("login islemi basarili")
+      navigate("/");
+    } catch (error) {
+      console.log(error.message);
+      dispatch(fetchFail());
+      // toastErrorNotify(error.response.data.non_field_errors[0])
+    }
+  };
 
-  return { login, register };
+  return { login, register, logout };
 };
 
 export default useAuthCalls;

@@ -1,9 +1,11 @@
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import useAuthCalls from "../hooks/useAuthCalls";
 
 const Navbar = () => {
 
   const {user} = useSelector((state)=>state.auth)
+  const { logout } = useAuthCalls()
 
   return (
     <nav className="navbar navbar-expand-lg ">
@@ -65,7 +67,7 @@ const Navbar = () => {
       </NavLink>
     </li>
     <li>
-      <p className="dropdown-item" role="button">
+      <p className="dropdown-item" role="button" onClick={()=>logout()}>
       Logout </p>
     </li>
   </ul>)}
