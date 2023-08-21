@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 
 
 const NewBlog = () => {
+  
   const {token} = useSelector((state)=>state.auth)
   const BASE_URL = "http://33499.fullstack.clarusway.com/";
   const [cat, setCat] = useState([]);

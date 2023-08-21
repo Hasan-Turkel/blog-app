@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { BsFillPersonFill } from 'react-icons/bs';
 import { AiOutlineEye, AiOutlineHeart} from 'react-icons/ai';
 import { BiComment} from 'react-icons/bi';
+import CommentCard from "../components/blog/CommentCard";
 
 
 const Detail = () => {
@@ -57,10 +58,22 @@ const Detail = () => {
 
     {user.username==data.author&&(<div><button className="btn btn-primary m-4">Update</button>
     <button className="btn btn-danger m-4">Delete</button></div>)}
-    
-    </div>
-    
+
+    {data?.comments?.map((item)=> <div className="mb-2">
+      <p className="m-0">{item.content}</p>
+      <p className="m-0">{item.user}</p>
+      <p className="m-0">{item.time_stamp}</p>
+      <hr />
+
+      </div>
       
+    )}
+
+   
+    <CommentCard id={data.id} getDetailCard={getDetailCard}/>
+    </div>
+
+    
     </div>
      );
 };
