@@ -7,6 +7,8 @@ import { BsFillPersonFill } from 'react-icons/bs';
 import { AiOutlineEye, AiOutlineHeart} from 'react-icons/ai';
 import { BiComment} from 'react-icons/bi';
 import CommentCard from "../components/blog/CommentCard";
+import useBlogCalls from "../hooks/useBlogCalls";
+
 
 
 const Detail = () => {
@@ -32,6 +34,14 @@ const Detail = () => {
   useEffect(() => {
     getDetailCard();
   }, []);
+  const {likeUnlike} = useBlogCalls()
+  const handleClick=()=>{
+    likeUnlike(id)
+    setTimeout(() => {
+      getDetailCard();
+  }, 1000);
+  }
+
 
   return (
     <div className="container d-flex flex-column  m-5 gap-2 ">
@@ -42,27 +52,41 @@ const Detail = () => {
     {data.content}
     </p>
     <p className="card-text">
-    {data.publish_date}
+    {new Date(data.publish_date).toLocaleString({
+                  day: "numeric",
+                  month: "numeric",
+                  year: "numeric",
+                  hour: "numeric",
+                  minute: "numeric",
+                  second: "numeric",
+                })}
     </p>
     <p className="card-text"><BsFillPersonFill className='fs-2'/>
     {data.author}
     </p>
-    <div className='d-flex align-items-center gap-2 '>
-<AiOutlineHeart className='fs-4'/>
+    <div className='d-flex align-items-center gap-2 mb-2 '>
+<AiOutlineHeart className='fs-4' onClick={handleClick}/>
 <span>{data.likes}</span>
 <BiComment className='fs-4'/>
 <span>{data.comment_count}</span>
-<AiOutlineEye className='fs-4'/>
+<AiOutlineEye className='fs-4 '/>
 <span>{data.post_views}</span>
     </div>
 
     {user.username==data.author&&(<div><button className="btn btn-primary m-4">Update</button>
     <button className="btn btn-danger m-4">Delete</button></div>)}
 
-    {data?.comments?.map((item)=> <div className="mb-2">
+    {data?.comments?.map((item)=> <div key={item.id} className="mb-2">
       <p className="m-0">{item.content}</p>
       <p className="m-0">{item.user}</p>
-      <p className="m-0">{item.time_stamp}</p>
+      <p className="m-0">{new Date(item.time_stamp).toLocaleString({
+                  day: "numeric",
+                  month: "numeric",
+                  year: "numeric",
+                  hour: "numeric",
+                  minute: "numeric",
+                  second: "numeric",
+                })}</p>
       <hr />
 
       </div>

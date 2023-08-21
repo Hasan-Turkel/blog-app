@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 const CommentCard = ({id, getDetailCard}) => {
 const {token} = useSelector((state)=>state.auth)
-  const BASE_URL = "http://33499.fullstack.clarusway.com/";
+  const BASE_URL = "https://33499.fullstack.clarusway.com/";
 
   const sendComment = async (values) => {
 
@@ -36,7 +36,7 @@ const {token} = useSelector((state)=>state.auth)
     action.setSubmitting(false);
     setTimeout(() => {
     getDetailCard();
-}, 2000);
+}, 1000);
     
       
       console.log(values);
