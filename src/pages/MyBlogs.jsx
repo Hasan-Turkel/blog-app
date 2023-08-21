@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Card from "../components/blog/Card"
 
 const MyBlogs = () => {
   const { user } = useSelector((state) => state.auth);
@@ -38,7 +39,9 @@ const MyBlogs = () => {
           </h3>
         </div>
       ) : (
-        <h1>data var</h1>
+        <div className="row justify-content-center my-5 gap-4">
+        {data?.map((item)=>(<div className="col-9 col-md-4 col-lg-3"><Card  key={item.id} {...item} /></div>))}
+      </div>
       )}
     </div>
   );

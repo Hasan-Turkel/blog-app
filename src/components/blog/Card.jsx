@@ -37,7 +37,7 @@ const Card = ({image, title, content, publish_date, author, id, comment_count, l
     
     </div>
     
-  <button  className="btn btn-primary mt-2 " onClick={()=>navigate(`detail/${id}`)}>
+  <button  className="btn btn-primary mt-2 " onClick={()=>navigate(`/detail/${id}`)}>
       Read More
     </button>
     
