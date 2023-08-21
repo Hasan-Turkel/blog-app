@@ -19,7 +19,7 @@ useEffect(() => {
 
   return (
     <div className="row justify-content-center my-5 gap-4">
-      {data?.map((item)=>(<div className="col-12 col-md-4 col-lg-3"><Card  key={item.id} {...item} /></div>))}
+      {data?.map((item)=>(<div className="col-9 col-md-4 col-lg-3"><Card  key={item.id} {...item} /></div>))}
     </div>
 
     
