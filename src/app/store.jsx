@@ -17,6 +17,7 @@ const store = configureStore({
     
     blog: blogReducer,
   },
+  devTools: process.env.NODE_ENV !== "production",
   middleware: getDefaultMiddleware({
     serializableCheck: false,
   }),
