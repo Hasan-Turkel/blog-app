@@ -8,6 +8,7 @@ import { AiOutlineEye, AiFillHeart} from 'react-icons/ai';
 import { BiComment} from 'react-icons/bi';
 import CommentCard from "../components/blog/CommentCard";
 import useBlogCalls from "../hooks/useBlogCalls";
+import DeleteModal from "../components/blog/DeleteModal";
 
 
 
@@ -74,7 +75,10 @@ const Detail = () => {
     </div>
 
     {user.username==data.author&&(<div><button className="btn btn-primary m-4">Update</button>
-    <button className="btn btn-danger m-4">Delete</button></div>)}
+    <button className="btn btn-danger m-4"  data-bs-toggle="modal"
+      data-bs-target="#exampleModal">Delete</button></div>)}
+
+    <DeleteModal toggle={"data-bs-toggle"} target={"data-bs-target"}/>
 
     {data?.comments?.map((item)=> <div key={item.id} className="mb-2">
       <p className="m-0">{item.content}</p>
