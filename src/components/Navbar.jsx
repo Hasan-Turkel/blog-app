@@ -1,14 +1,17 @@
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import useAuthCalls from "../hooks/useAuthCalls";
+import { BsFillPersonFill } from "react-icons/bs";
 
 const Navbar = () => {
 
   const {user} = useSelector((state)=>state.auth)
   const { logout } = useAuthCalls()
 
+  const person = user? "text-success":"text-light"
+
   return (
-    <nav className="navbar navbar-expand-lg ">
+    <nav className="navbar navbar-expand-md ps-4 ">
   <div className="container-fluid ">
     <NavLink className="navbar-brand" to="/">
       <h2>BLOG-APP</h2>
@@ -26,13 +29,13 @@ const Navbar = () => {
     </button>
     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div className="navbar-nav fs-5">
-        <NavLink className="nav-link active" aria-current="page" to="/">
+        <NavLink className="nav-link fw-bolder" aria-current="page" to="/">
           Dashoard
         </NavLink>
-        <NavLink className="nav-link active" aria-current="page" to="/new-blog">
+        <NavLink className="nav-link fw-bolder" aria-current="page" to="/new-blog">
           New Blog
         </NavLink>
-        <NavLink className="nav-link active" aria-current="page" to="about">
+        <NavLink className="nav-link fw-bolder" aria-current="page" to="about">
           About
         </NavLink>
       </div>
@@ -44,8 +47,7 @@ const Navbar = () => {
     role="button"
     data-bs-toggle="dropdown"
   >
-    <img src="https://i.stack.imgur.com/lAwxR.png" className="rounded-circle" style={{width: "40px"}}
-  alt="Avatar" />
+   <BsFillPersonFill className={"fs-2 " + (person)}/>
   </a>
 
   {!user?(<ul className="dropdown-menu " >

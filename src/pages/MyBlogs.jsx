@@ -30,7 +30,7 @@ const MyBlogs = () => {
   return (
     <div>
       {!data?.length ? (
-        <div className="d-flex justify-content-center align-items-center my-4">
+        <div className="d-flex justify-content-center align-items-center">
           <h3>
             No Blogs!{" "}
             <span className="text-danger" role="button" onClick={()=>navigate("/new-blog")}>

@@ -1,16 +1,19 @@
 footer{
-    background-color: cadetblue;
+    background-color: rgb(172, 233, 235);
+    position: fixed;
+    bottom: 0;
 }
 li{
     list-style-type: none;
 }
 .navbar{
     padding-right: 60px;
-    background-color: cadetblue;
+    background-color:rgb(172, 233, 235);
 
 }
 .auth-form{
     max-width: 400px;
+    
 }
 .detail-img{
     width: 250px;
@@ -21,4 +24,7 @@ li{
 .textarea{
     resize: none;
     height: 100px;
+}
+.empty-div{
+    height: 10rem;
 }

@@ -62,10 +62,11 @@ const {token} = useSelector((state)=>state.auth)
           onChange={handleChange}
           onBlur={handleBlur}
           value={values.content}
+          required
         />
         <h3>{errors.content && touched.content && errors.content}</h3>
-        <button type="submit" disabled={isSubmitting}>
-          Submit
+        <button type="submit" className="btn btn-success" disabled={isSubmitting}>
+          Add a new comment
         </button>
       </Form>
     )}

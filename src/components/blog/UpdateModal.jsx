@@ -75,7 +75,7 @@ const UpdateModal = ({data, id, getDetailCard}) => {
           /* and other goodies */
         }) => (
           <Form onSubmit={handleSubmit}>
-            <label htmlFor="title" className="form-label mt-2">
+            <label htmlFor="title" className="form-label mt-2 fw-bolder">
               Title*
             </label>
             <input
@@ -87,7 +87,7 @@ const UpdateModal = ({data, id, getDetailCard}) => {
               value={values.title}
             />
             <h3>{errors.title && touched.title && errors.title}</h3>
-            <label htmlFor="image" className="form-label">
+            <label htmlFor="image" className="form-label fw-bolder">
               Image Url*
             </label>
             <input
@@ -99,7 +99,7 @@ const UpdateModal = ({data, id, getDetailCard}) => {
               value={values.image}
             />
             <h3>{errors.image && touched.image && errors.image}</h3>
-            <label htmlFor="content" className="form-label">
+            <label htmlFor="content" className="form-label fw-bolder">
               Content*
             </label>{" "}
             <br />
@@ -113,7 +113,7 @@ const UpdateModal = ({data, id, getDetailCard}) => {
               value={values.content}
             />
             <h3>{errors.content && touched.content && errors.content}</h3>
-            <label htmlFor="category" className="form-label">
+            <label htmlFor="category" className="form-label fw-bolder">
               Categories* (Please choose by clicking.)
             </label>
             <br />
@@ -131,7 +131,7 @@ const UpdateModal = ({data, id, getDetailCard}) => {
             </Field>
             <h3>{errors.category && touched.category && errors.category}</h3>
 
-            <label htmlFor="status" className="form-label">
+            <label htmlFor="status" className="form-label fw-bolder">
               Status* (Please choose by clicking.)
             </label>
             <br />

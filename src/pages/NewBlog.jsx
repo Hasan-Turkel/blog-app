@@ -2,12 +2,15 @@ import { Formik, Form, Field } from "formik";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 
 
 
 
 const NewBlog = () => {
+
+ const navigate = useNavigate()
   
   const {token} = useSelector((state)=>state.auth)
   const BASE_URL = "http://33499.fullstack.clarusway.com/";
@@ -38,6 +41,7 @@ const NewBlog = () => {
 
       }});
       // toastSuccessNotify("login islemi basarili")
+      navigate("/my-blogs")
       console.log(data);
     } catch (error) {
       console.log(error.message);
@@ -73,7 +77,7 @@ const NewBlog = () => {
           /* and other goodies */
         }) => (
           <Form onSubmit={handleSubmit}>
-            <label htmlFor="title" className="form-label mt-5">
+            <label htmlFor="title" className="form-label fw-bolder mt-1">
               Title*
             </label>
             <input
@@ -83,9 +87,10 @@ const NewBlog = () => {
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.title}
+              required
             />
             <h3>{errors.title && touched.title && errors.title}</h3>
-            <label htmlFor="image" className="form-label">
+            <label htmlFor="image" className="form-label fw-bolder">
               Image Url*
             </label>
             <input
@@ -95,9 +100,10 @@ const NewBlog = () => {
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.image}
+              required
             />
             <h3>{errors.image && touched.image && errors.image}</h3>
-            <label htmlFor="content" className="form-label">
+            <label htmlFor="content" className="form-label fw-bolder">
               Content*
             </label>{" "}
             <br />
@@ -109,9 +115,10 @@ const NewBlog = () => {
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.content}
+              required
             />
             <h3>{errors.content && touched.content && errors.content}</h3>
-            <label htmlFor="category" className="form-label">
+            <label htmlFor="category" className="form-label fw-bolder">
               Categories* (Please choose by clicking.)
             </label>
             <br />
@@ -123,13 +130,14 @@ const NewBlog = () => {
               onBlur={handleBlur}
               value={values.category}
               role="button"
+              required
             >
               <option value="">Please choose</option>
               {cat?.map((item)=><option key={item.id} value={item.id}>{item.name}</option>)}
             </Field>
             <h3>{errors.category && touched.category && errors.category}</h3>
 
-            <label htmlFor="status" className="form-label">
+            <label htmlFor="status" className="form-label fw-bolder">
               Status* (Please choose by clicking.)
             </label>
             <br />
@@ -140,6 +148,7 @@ const NewBlog = () => {
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.status}
+              required
             >
               <option value="">Please choose</option>
               <option value="d">Draft</option>
@@ -147,8 +156,8 @@ const NewBlog = () => {
               
             </Field>
             <h3>{errors.status && touched.status && errors.status}</h3>
-            <button type="submit" disabled={isSubmitting}>
-              Submit
+            <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
+              Create New Blog
             </button>
           </Form>
         )}

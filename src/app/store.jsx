@@ -2,7 +2,7 @@ import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import authReducer from "../features/authSlice"
 import blogReducer from "../features/blogSlice"
 import { persistStore, persistReducer } from "redux-persist"
-import storage from "redux-persist/lib/storage/session" //? default : localStorage
+import storage from "redux-persist/lib/storage/session" 
 
 const persistConfig = {
   key: "root",
