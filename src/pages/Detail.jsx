@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { BsFillPersonFill } from 'react-icons/bs';
-import { AiOutlineEye, AiOutlineHeart} from 'react-icons/ai';
+import { AiOutlineEye, AiFillHeart} from 'react-icons/ai';
 import { BiComment} from 'react-icons/bi';
 import CommentCard from "../components/blog/CommentCard";
 import useBlogCalls from "../hooks/useBlogCalls";
@@ -42,7 +42,7 @@ const Detail = () => {
   }, 1000);
   }
 
-
+  const like = data?.likes_n?.filter((item=> item.user_id==user?.id)).length&&"text-danger"
   return (
     <div className="container d-flex flex-column  m-5 gap-2 ">
       <img src={data.image} className="card-img-top detail-img" alt={data.title} />
@@ -65,7 +65,7 @@ const Detail = () => {
     {data.author}
     </p>
     <div className='d-flex align-items-center gap-2 mb-2 '>
-<AiOutlineHeart className='fs-4' onClick={handleClick}/>
+<AiFillHeart className={"fs-4 " + (like)} role="button" onClick={handleClick}/>
 <span>{data.likes}</span>
 <BiComment className='fs-4'/>
 <span>{data.comment_count}</span>
