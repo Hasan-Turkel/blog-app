@@ -1,6 +1,11 @@
-import React from 'react'
+import useBlogCalls from "../../hooks/useBlogCalls";
 
-const DeleteModal = ({toggle, target}) => {
+const DeleteModal = ({id}) => {
+    const {delBlog} = useBlogCalls()
+    const handleDel=()=>{
+        delBlog(id)
+      }
+    
   return (
     <>
     <div
@@ -32,7 +37,7 @@ const DeleteModal = ({toggle, target}) => {
             >
               No, cancel please.
             </button>
-            <button type="button" className="btn btn-danger">
+            <button type="button" className="btn btn-danger" data-bs-dismiss="modal" onClick={handleDel}>
               Yes, I'm sure.
             </button>
           </div>

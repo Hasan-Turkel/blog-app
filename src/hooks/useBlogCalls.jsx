@@ -1,9 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { fetchFail, fetchStart, likeSuccess } from "../features/blogSlice";
+import { useNavigate } from "react-router-dom";
 
 const useBlogCalls = () => {
     const dispatch = useDispatch();
+    const navigate= useNavigate()
  
  
   const BASE_URL = "http://33499.fullstack.clarusway.com/";
@@ -30,7 +32,27 @@ const useBlogCalls = () => {
     }
   };
 
-  return {likeUnlike};
+  const delBlog = async (id) => {
+   
+    try {
+        const { data } = await axios.delete(`${BASE_URL}api/blogs/${id}/`,
+        {headers:{Authorization: `Token ${token}`
+        
+      }});
+      // toastSuccessNotify("login islemi basarili")
+      navigate(-1)
+      console.log(data);
+      console.log(id);
+      
+    } catch (error) {
+      console.log(error.message);
+      console.log(id);
+    
+      // toastErrorNotify(error.response.data.non_field_errors[0])
+    }
+  };
+
+  return {likeUnlike, delBlog};
 };
 
 export default useBlogCalls;

@@ -36,12 +36,15 @@ const Detail = () => {
     getDetailCard();
   }, []);
   const {likeUnlike} = useBlogCalls()
+ 
   const handleClick=()=>{
     likeUnlike(id)
     setTimeout(() => {
       getDetailCard();
   }, 1000);
   }
+ 
+  
 
   const like = data?.likes_n?.filter((item=> item.user_id==user?.id)).length&&"text-danger"
   return (
@@ -74,11 +77,11 @@ const Detail = () => {
 <span>{data.post_views}</span>
     </div>
 
-    {user.username==data.author&&(<div><button className="btn btn-primary m-4">Update</button>
+    {user?.username==data?.author&&(<div><button className="btn btn-primary m-4">Update</button>
     <button className="btn btn-danger m-4"  data-bs-toggle="modal"
-      data-bs-target="#exampleModal">Delete</button></div>)}
+      data-bs-target="#exampleModal" >Delete</button></div>)}
 
-    <DeleteModal toggle={"data-bs-toggle"} target={"data-bs-target"}/>
+    <DeleteModal id={id}/>
 
     {data?.comments?.map((item)=> <div key={item.id} className="mb-2">
       <p className="m-0">{item.content}</p>
