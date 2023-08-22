@@ -5,12 +5,15 @@ const DeleteModal = ({id}) => {
     const handleDel=()=>{
         delBlog(id)
       }
+
+    
+  
     
   return (
     <>
     <div
       className="modal fade"
-      id="exampleModal"
+      id="del"
       tabIndex={-1}
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"

@@ -9,6 +9,7 @@ import { BiComment} from 'react-icons/bi';
 import CommentCard from "../components/blog/CommentCard";
 import useBlogCalls from "../hooks/useBlogCalls";
 import DeleteModal from "../components/blog/DeleteModal";
+import UpdateModal from "../components/blog/UpdateModal";
 
 
 
@@ -77,11 +78,14 @@ const Detail = () => {
 <span>{data.post_views}</span>
     </div>
 
-    {user?.username==data?.author&&(<div><button className="btn btn-primary m-4">Update</button>
+    {user?.username==data?.author&&(<div><button className="btn btn-primary m-4" data-bs-toggle="modal"
+      data-bs-target="#update">Update</button>
+
     <button className="btn btn-danger m-4"  data-bs-toggle="modal"
-      data-bs-target="#exampleModal" >Delete</button></div>)}
+      data-bs-target="#del" >Delete</button></div>)}
 
     <DeleteModal id={id}/>
+    <UpdateModal id={id} data={data} getDetailCard={getDetailCard}/>
 
     {data?.comments?.map((item)=> <div key={item.id} className="mb-2">
       <p className="m-0">{item.content}</p>

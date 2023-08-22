@@ -51,8 +51,27 @@ const useBlogCalls = () => {
       // toastErrorNotify(error.response.data.non_field_errors[0])
     }
   };
+  const updateBlog = async (values) => {
+   
+    try {
+        const { data } = await axios.put(`${BASE_URL}api/blogs/${values.id}/`,values,
+        {headers:{Authorization: `Token ${token}`
+        
+      }});
+      // toastSuccessNotify("login islemi basarili")
+     
+      console.log(data);
+      console.log(id);
+      
+    } catch (error) {
+      console.log(error.message);
+      console.log(id);
+    
+      // toastErrorNotify(error.response.data.non_field_errors[0])
+    }
+  };
 
-  return {likeUnlike, delBlog};
+  return {likeUnlike, delBlog, updateBlog};
 };
 
 export default useBlogCalls;

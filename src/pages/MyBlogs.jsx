@@ -40,7 +40,7 @@ const MyBlogs = () => {
         </div>
       ) : (
         <div className="row justify-content-center my-5 gap-4">
-        {data?.map((item)=>(<div className="col-9 col-md-4 col-lg-3"><Card  key={item.id} {...item} /></div>))}
+        {data?.map((item)=>(<div  key={item.id} className="col-9 col-md-4 col-lg-3"><Card  {...item} /></div>))}
       </div>
       )}
     </div>

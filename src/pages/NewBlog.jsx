@@ -45,12 +45,6 @@ const NewBlog = () => {
     }
   };
 
-
-
-
-
-
-
   return (
     <div className="container auth-form">
       <Formik
