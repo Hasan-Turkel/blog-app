@@ -5,14 +5,21 @@ import { AiOutlineEye, AiFillHeart} from 'react-icons/ai';
 import { BiComment} from 'react-icons/bi';
 import useBlogCalls from '../../hooks/useBlogCalls';
 import { useSelector } from 'react-redux';
+import { toastWarnNotify } from "../../helper/ToastNotify"
+
 
 const Card = ({image, title, content, publish_date, author, id, comment_count, likes, post_views, likes_n, getCard}) => {
   const navigate= useNavigate()
   const handleClick=()=>{
-    likeUnlike(id)
-    setTimeout(() => {
-      getCard();
-  }, 1000);
+    if (user) {likeUnlike(id)
+      setTimeout(() => {
+        getCard();
+    }, 1000);}
+    else{toastWarnNotify("You must login first.");
+    navigate("/login")
+
+    }
+
   }
   const { user } = useSelector((state) => state.auth);
 
@@ -60,7 +67,7 @@ role='button' onClick={handleClick}/>
     
     </div>
     
-  <button  className="btn btn-primary mt-2 " onClick={()=>navigate(`/detail/${id}`)}>
+  <button  className="btn btn-primary mt-2 " onClick={()=>{navigate(`/detail/${id}`); !user&&toastWarnNotify("You must login first.")}}>
       Read More
     </button>
     

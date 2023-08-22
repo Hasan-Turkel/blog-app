@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import useAuthCalls from "../hooks/useAuthCalls";
 import { BsFillPersonFill } from "react-icons/bs";
+import { toastWarnNotify } from "../helper/ToastNotify"
 
 const Navbar = () => {
 
@@ -32,7 +33,7 @@ const Navbar = () => {
         <NavLink className="nav-link fw-bolder" aria-current="page" to="/">
           Dashoard
         </NavLink>
-        <NavLink className="nav-link fw-bolder" aria-current="page" to="/new-blog">
+        <NavLink className="nav-link fw-bolder" aria-current="page" to="/new-blog" onClick={()=>!user&&toastWarnNotify("You must login first.")}>
           New Blog
         </NavLink>
         <NavLink className="nav-link fw-bolder" aria-current="page" to="about">
