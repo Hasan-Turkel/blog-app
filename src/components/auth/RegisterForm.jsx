@@ -6,18 +6,18 @@ const RegisterForm = () => {
     const {register} = useAuthCalls()
   const loginSchema = object({
     email: string()
-      .email("Lutfen valid bir email giriniz")
-      .required("Bu alan zorunludur"),
+      .email()
+      .required(),
     password: string()
-      .required("Bu alan zorunludur")
-      .min(8, "En az 8 karakter girilmelidir")
-      .max(16, "En fazla 16 karakter girilmelidir")
-      .matches(/\d+/, "En az bir rakam içermelidir.")
-      .matches(/[a-z]/, "En az bir küçük harf içermelidir.")
-      .matches(/[A-Z]/, "En az bir büyük harf içermelidir.")
-      .matches(/[!,?{}><%&$#£+-.]+/, "En az bir özel karekter içermelidir."),
+      .required()
+      .min(8)
+      .max(16)
+      .matches(/\d+/)
+      .matches(/[a-z]/)
+      .matches(/[A-Z]/)
+      .matches(/[!,?{}><%&$#£+-.]+/),
       username:string()
-      .required("Bu alan zorunludur")
+      .required()
   });
 
   return (
@@ -46,7 +46,7 @@ const RegisterForm = () => {
           /* and other goodies */
         }) => (
           <Form onSubmit={handleSubmit} >
-            <label htmlFor="username" className="form-label mt-5">
+            <label htmlFor="username" className="form-label fw-bolder mt-5">
               Username*
             </label>
             <input
@@ -58,7 +58,7 @@ const RegisterForm = () => {
               value={values.username}
             />
             <h3>{errors.username && touched.username && errors.username}</h3>
-            <label htmlFor="email" className="form-label">
+            <label htmlFor="email" className="form-label fw-bolder">
               Email address*
             </label>
             <input
@@ -71,7 +71,7 @@ const RegisterForm = () => {
             />
             <h3>{errors.email && touched.email && errors.email}</h3>
 
-            <label htmlFor="password" className="form-label">
+            <label htmlFor="password" className="form-label fw-bolder">
               Password*
             </label>
             <input
@@ -84,8 +84,8 @@ const RegisterForm = () => {
             />
             <h3>{errors.password && touched.password && errors.password}</h3>
 
-            <button type="submit" disabled={isSubmitting}>
-              Submit
+            <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
+              Register
             </button>
           </Form>
         )}
