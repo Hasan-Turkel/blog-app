@@ -18,7 +18,7 @@ const Detail = () => {
   const {token} = useSelector((state)=>state.auth)
   const {user} = useSelector((state)=>state.auth)
 
-  const BASE_URL = "http://33499.fullstack.clarusway.com/";
+  const BASE_URL = "https://33499.fullstack.clarusway.com/";
   const [data, setData] = useState([]);
   const getDetailCard = async () => {
     try {

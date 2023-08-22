@@ -4,7 +4,7 @@ import Card from "../components/blog/Card"
 
 
 const Dashboard = () => {
-const BASE_URL= "http://33499.fullstack.clarusway.com/"
+const BASE_URL= "https://33499.fullstack.clarusway.com/"
 const [data, setData] = useState([])
 const getCard = async() => {
   const {data} = await axios(`${BASE_URL}api/blogs`)

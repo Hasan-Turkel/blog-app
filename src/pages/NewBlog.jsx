@@ -14,7 +14,7 @@ const NewBlog = () => {
  const navigate = useNavigate()
   
   const {token} = useSelector((state)=>state.auth)
-  const BASE_URL = "http://33499.fullstack.clarusway.com/";
+  const BASE_URL = "https://33499.fullstack.clarusway.com/";
   const [cat, setCat] = useState([]);
   console.log(cat);
 

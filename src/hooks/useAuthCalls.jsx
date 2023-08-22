@@ -6,7 +6,7 @@ import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify"
 const useAuthCalls = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const BASE_URL = "http://33499.fullstack.clarusway.com/";
+  const BASE_URL = "https://33499.fullstack.clarusway.com/";
 
   const login = async (values) => {
     dispatch(fetchStart());

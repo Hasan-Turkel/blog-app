@@ -9,7 +9,7 @@ const MyBlogs = () => {
   const { token } = useSelector((state) => state.auth);
   const navigate = useNavigate()
 
-  const BASE_URL = "http://33499.fullstack.clarusway.com/";
+  const BASE_URL = "https://33499.fullstack.clarusway.com/";
   const [data, setData] = useState([]);
   const getMyBlogs = async () => {
     try {
