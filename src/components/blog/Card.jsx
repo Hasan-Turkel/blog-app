@@ -1,11 +1,12 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { BsFillPersonFill } from 'react-icons/bs';
-import { AiOutlineEye, AiOutlineHeart} from 'react-icons/ai';
+import { AiOutlineEye, AiFillHeart} from 'react-icons/ai';
 import { BiComment} from 'react-icons/bi';
 import useBlogCalls from '../../hooks/useBlogCalls';
+import { useSelector } from 'react-redux';
 
-const Card = ({image, title, content, publish_date, author, id, comment_count, likes, post_views, getCard}) => {
+const Card = ({image, title, content, publish_date, author, id, comment_count, likes, post_views, likes_n, getCard}) => {
   const navigate= useNavigate()
   const handleClick=()=>{
     likeUnlike(id)
@@ -13,8 +14,15 @@ const Card = ({image, title, content, publish_date, author, id, comment_count, l
       getCard();
   }, 1000);
   }
+  const { user } = useSelector((state) => state.auth);
+
+  const like = likes_n?.filter((item=> item.user_id==user?.id)).length&&"text-danger"
+  console.log(like);
+
 
   const {likeUnlike} = useBlogCalls()
+  
+  
  
   return (
     <div className="card p-4" style={{ width: "300px", height:"70vh" }}>
@@ -40,7 +48,9 @@ const Card = ({image, title, content, publish_date, author, id, comment_count, l
     <div>
 
 <div className='d-flex align-items-center gap-2 '>
-<AiOutlineHeart className='fs-4' role='button' onClick={handleClick}/>
+<AiFillHeart className={"fs-4 " + (like)}
+  
+role='button' onClick={handleClick}/>
 <span>{likes}</span>
 <BiComment className='fs-4'/>
 <span>{comment_count}</span>

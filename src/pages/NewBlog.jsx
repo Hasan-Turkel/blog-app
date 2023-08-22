@@ -131,7 +131,7 @@ const NewBlog = () => {
               role="button"
             >
               <option value="">Please choose</option>
-              {cat?.map((item)=><option value={item.id}>{item.name}</option>)}
+              {cat?.map((item)=><option key={item.id} value={item.id}>{item.name}</option>)}
             </Field>
             <h3>{errors.category && touched.category && errors.category}</h3>
 
