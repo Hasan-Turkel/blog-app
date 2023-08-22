@@ -7,7 +7,7 @@ const UpdateModal = ({data, id, getDetailCard}) => {
     const {updateBlog} = useBlogCalls()
     
 
-      const BASE_URL = "http://33499.fullstack.clarusway.com/";
+      const BASE_URL = "https://33499.fullstack.clarusway.com/";
   const [cat, setCat] = useState([]);
   console.log(cat);
 
