@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { fetchFail, fetchStart, loginSuccess, registerSuccess, logoutSuccess } from "../features/authSlice";
-
+import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify"
 const useAuthCalls = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -13,13 +13,13 @@ const useAuthCalls = () => {
     try {
       const { data } = await axios.post(`${BASE_URL}users/auth/login/`, values);
       dispatch(loginSuccess(data));
-      // toastSuccessNotify("login islemi basarili")
+      toastSuccessNotify("Login performed.")
       navigate("/");
       console.log(data);
     } catch (error) {
       console.log(error.message);
       dispatch(fetchFail());
-      // toastErrorNotify(error.response.data.non_field_errors[0])
+      toastErrorNotify(error.response.data.non_field_errors[0])
     }
   };
 
@@ -28,13 +28,13 @@ const useAuthCalls = () => {
     try {
       const { data } = await axios.post(`${BASE_URL}users/register/`, values);
       dispatch(registerSuccess(data));
-      // toastSuccessNotify("login islemi basarili")
+      toastSuccessNotify("Register performed.")
       navigate("/");
       console.log(data);
     } catch (error) {
       console.log(error.message);
       dispatch(fetchFail());
-      // toastErrorNotify(error.response.data.non_field_errors[0])
+      toastErrorNotify(error.response.data.non_field_errors[0])
     }
   };
   const logout = async () => {
@@ -42,12 +42,12 @@ const useAuthCalls = () => {
     try {
       await axios.post(`${BASE_URL}users/auth/logout/`);
       dispatch(logoutSuccess());
-      // toastSuccessNotify("login islemi basarili")
+      toastSuccessNotify("Logout performed.")
       navigate("/");
     } catch (error) {
       console.log(error.message);
       dispatch(fetchFail());
-      // toastErrorNotify(error.response.data.non_field_errors[0])
+      toastErrorNotify(error.response.data.non_field_errors[0])
     }
   };
 

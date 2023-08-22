@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify"
 
 
 
@@ -40,12 +41,12 @@ const NewBlog = () => {
       
 
       }});
-      // toastSuccessNotify("login islemi basarili")
+      toastSuccessNotify("The blog has been created.")
       navigate("/my-blogs")
       console.log(data);
     } catch (error) {
       console.log(error.message);
-      // toastErrorNotify(error.response.data.non_field_errors[0])
+      toastErrorNotify(error.response.data.non_field_errors[0])
     }
   };
 

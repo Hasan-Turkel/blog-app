@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { fetchFail, fetchStart, likeSuccess } from "../features/blogSlice";
 import { useNavigate } from "react-router-dom";
+import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify"
 
 const useBlogCalls = () => {
     const dispatch = useDispatch();
@@ -39,7 +40,7 @@ const useBlogCalls = () => {
         {headers:{Authorization: `Token ${token}`
         
       }});
-      // toastSuccessNotify("login islemi basarili")
+      toastSuccessNotify("The blog has been deleted.")
       navigate(-1)
       console.log(data);
       console.log(id);
@@ -48,7 +49,7 @@ const useBlogCalls = () => {
       console.log(error.message);
       console.log(id);
     
-      // toastErrorNotify(error.response.data.non_field_errors[0])
+      toastErrorNotify(error.response.data.non_field_errors[0])
     }
   };
   const updateBlog = async (values) => {
@@ -58,7 +59,7 @@ const useBlogCalls = () => {
         {headers:{Authorization: `Token ${token}`
         
       }});
-      // toastSuccessNotify("login islemi basarili")
+      toastSuccessNotify("The blog has been updated.")
      
       console.log(data);
       console.log(id);
@@ -67,7 +68,7 @@ const useBlogCalls = () => {
       console.log(error.message);
       console.log(id);
     
-      // toastErrorNotify(error.response.data.non_field_errors[0])
+      toastErrorNotify(error.response.data.non_field_errors[0])
     }
   };
 

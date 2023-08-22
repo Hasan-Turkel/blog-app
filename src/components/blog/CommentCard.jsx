@@ -1,7 +1,7 @@
 import { Formik, Form, Field } from "formik";
 import axios from "axios";
 import { useSelector } from "react-redux";
-
+import { toastErrorNotify, toastSuccessNotify } from "../../helper/ToastNotify"
 const CommentCard = ({id, getDetailCard}) => {
 const {token} = useSelector((state)=>state.auth)
   const BASE_URL = "https://33499.fullstack.clarusway.com/";
@@ -14,11 +14,11 @@ const {token} = useSelector((state)=>state.auth)
       
 
       }});
-      // toastSuccessNotify("login islemi basarili")
+      toastSuccessNotify("Comment has been sent.")
       console.log(data);
     } catch (error) {
       console.log(error.message);
-      // toastErrorNotify(error.response.data.non_field_errors[0])
+      toastErrorNotify(error.response.data.non_field_errors[0])
     }
   };
 

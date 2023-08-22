@@ -6,9 +6,6 @@ const DeleteModal = ({id}) => {
         delBlog(id)
       }
 
-    
-  
-    
   return (
     <>
     <div
