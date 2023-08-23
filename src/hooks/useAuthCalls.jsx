@@ -15,7 +15,7 @@ const useAuthCalls = () => {
       dispatch(loginSuccess(data));
       toastSuccessNotify("Login performed.")
       navigate("/");
-      // console.log(data);
+      console.log(data);
     } catch (error) {
       // console.log(error.message);
       dispatch(fetchFail());
@@ -30,7 +30,7 @@ const useAuthCalls = () => {
       dispatch(registerSuccess(data));
       toastSuccessNotify("Register performed.")
       navigate("/");
-      // console.log(data);
+      console.log(data);
     } catch (error) {
       // console.log(error);
       dispatch(fetchFail());
