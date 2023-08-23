@@ -9,7 +9,7 @@ const [data, setData] = useState([])
 const getCard = async() => {
   const {data} = await axios(`${BASE_URL}api/blogs`)
   setData(data)
-  console.log(data);
+  // console.log(data);
 }
 
 useEffect(() => {

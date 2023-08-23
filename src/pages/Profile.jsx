@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 const Profile = () => {
 
   const {user} = useSelector((state)=>state.auth)
-  console.log(user);
+  // console.log(user);
   return (
     <div className='container text-left my-4'>
     <h3>Username: {user?.username}</h3>

@@ -15,9 +15,9 @@ const useAuthCalls = () => {
       dispatch(loginSuccess(data));
       toastSuccessNotify("Login failed.")
       navigate("/");
-      console.log(data);
+      // console.log(data);
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
       dispatch(fetchFail());
       toastErrorNotify(error.response.data.non_field_errors[0])
     }
@@ -30,9 +30,9 @@ const useAuthCalls = () => {
       dispatch(registerSuccess(data));
       toastSuccessNotify("Register performed.")
       navigate("/");
-      console.log(data);
+      // console.log(data);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       dispatch(fetchFail());
       toastErrorNotify("Register failed")
     }
@@ -45,7 +45,7 @@ const useAuthCalls = () => {
       toastSuccessNotify("Logout performed.")
       navigate("/");
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
       dispatch(fetchFail());
       toastErrorNotify("Logout failed.")
     }

@@ -16,16 +16,16 @@ const NewBlog = () => {
   const {token} = useSelector((state)=>state.auth)
   const BASE_URL = "https://33499.fullstack.clarusway.com/";
   const [cat, setCat] = useState([]);
-  console.log(cat);
+  // console.log(cat);
 
 
   const getCat = async () => {
     try {
       const { data } = await axios(`${BASE_URL}api/categories/`);
       setCat(data);
-      console.log(data);
+      // console.log(data);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -43,9 +43,9 @@ const NewBlog = () => {
       }});
       toastSuccessNotify("The blog has been created.")
       navigate("/my-blogs")
-      console.log(data);
+      // console.log(data);
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
       toastErrorNotify("Creating blog failed.")
     }
   };
@@ -64,7 +64,7 @@ const NewBlog = () => {
           sendBlog(values);
           action.resetForm();
           action.setSubmitting(false);
-          console.log(values);
+          // console.log(values);
         }}
       >
         {({

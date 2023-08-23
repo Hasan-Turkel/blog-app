@@ -19,14 +19,14 @@ const useBlogCalls = () => {
         {headers:{Authorization: `Token ${token}`
         
       }});
-      // toastSuccessNotify("login islemi basarili")
-      console.log(data);
-      console.log(id);
+      
+      // console.log(data);
+      // console.log(id);
       dispatch(likeSuccess(data));
     } catch (error) {
-      console.log(error.message);
-      console.log(id);
-      console.log(token);
+      // console.log(error.message);
+      // console.log(id);
+      // console.log(token);
       dispatch(fetchFail());
     
       // toastErrorNotify(error.response.data.non_field_errors[0])
@@ -42,12 +42,12 @@ const useBlogCalls = () => {
       }});
       toastSuccessNotify("The blog has been deleted.")
       navigate(-1)
-      console.log(data);
-      console.log(id);
+      // console.log(data);
+      // console.log(id);
       
     } catch (error) {
-      console.log(error.message);
-      console.log(id);
+      // console.log(error.message);
+      // console.log(id);
     
       toastErrorNotify("Delete failed.")
     }
@@ -61,12 +61,12 @@ const useBlogCalls = () => {
       }});
       toastSuccessNotify("The blog has been updated.")
      
-      console.log(data);
-      console.log(id);
+      // console.log(data);
+      // console.log(id);
       
     } catch (error) {
-      console.log(error.message);
-      console.log(id);
+      // console.log(error.message);
+      // console.log(id);
     
       toastErrorNotify("Update failed.")
     }

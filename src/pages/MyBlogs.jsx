@@ -17,9 +17,9 @@ const MyBlogs = () => {
         headers: { Authorization: `Token ${token}` },
       });
       setData(data);
-      console.log(data);
+      // console.log(data);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
