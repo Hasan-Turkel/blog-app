@@ -7,7 +7,7 @@ const Profile = () => {
   const {user} = useSelector((state)=>state.auth)
   // console.log(user);
   return (
-    <div className='container text-left my-4'>
+    <div className='container text-left my-4 profile-div'>
     <h3>Username: {user?.username}</h3>
     <h3>Email: {user?.email}</h3>
     

@@ -6,8 +6,8 @@
 
 footer{
     background-color: rgb(172, 233, 235);
-    position: fixed;
-    bottom: 0;
+    /* position: fixed;
+    bottom: 0; */
 }
 li{
     list-style-type: none;
@@ -34,4 +34,7 @@ li{
 }
 .empty-div{
     height: 10rem;
+}
+.profile-div{
+    height:60vh;
 }

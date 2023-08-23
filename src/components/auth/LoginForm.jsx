@@ -25,7 +25,7 @@ const LoginForm = () => {
 
  return (
  
-    <div className="container auth-form">
+    <div className="container auth-form my-5">
     <Formik
       initialValues={{ email: '', password: '' }}
       validationSchema={loginSchema}
