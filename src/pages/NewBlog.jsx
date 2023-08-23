@@ -46,7 +46,7 @@ const NewBlog = () => {
       console.log(data);
     } catch (error) {
       console.log(error.message);
-      toastErrorNotify(error.response.data.non_field_errors[0])
+      toastErrorNotify("Creating blog failed.")
     }
   };
 

@@ -49,7 +49,7 @@ const useBlogCalls = () => {
       console.log(error.message);
       console.log(id);
     
-      toastErrorNotify(error.response.data.non_field_errors[0])
+      toastErrorNotify("Delete failed.")
     }
   };
   const updateBlog = async (values) => {
@@ -68,7 +68,7 @@ const useBlogCalls = () => {
       console.log(error.message);
       console.log(id);
     
-      toastErrorNotify(error.response.data.non_field_errors[0])
+      toastErrorNotify("Update failed.")
     }
   };
 

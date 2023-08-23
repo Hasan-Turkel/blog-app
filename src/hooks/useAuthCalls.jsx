@@ -13,7 +13,7 @@ const useAuthCalls = () => {
     try {
       const { data } = await axios.post(`${BASE_URL}users/auth/login/`, values);
       dispatch(loginSuccess(data));
-      toastSuccessNotify("Login performed.")
+      toastSuccessNotify("Login failed.")
       navigate("/");
       console.log(data);
     } catch (error) {
@@ -34,7 +34,7 @@ const useAuthCalls = () => {
     } catch (error) {
       console.log(error);
       dispatch(fetchFail());
-      toastErrorNotify(error.response.data.non_field_errors[0])
+      toastErrorNotify("Register failed")
     }
   };
   const logout = async () => {
@@ -47,7 +47,7 @@ const useAuthCalls = () => {
     } catch (error) {
       console.log(error.message);
       dispatch(fetchFail());
-      toastErrorNotify(error.response.data.non_field_errors[0])
+      toastErrorNotify("Logout failed.")
     }
   };
 
