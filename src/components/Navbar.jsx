@@ -12,7 +12,7 @@ const Navbar = () => {
   const person = user? "text-success":"text-light"
 
   return (
-    <nav className="navbar navbar-expand-md ps-4 ">
+    <nav className=" navbar navbar-expand-md ps-4 ">
   <div className="container-fluid ">
     <NavLink className="navbar-brand" to="/">
       <h2>BLOG-APP</h2>
