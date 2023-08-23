@@ -31,7 +31,7 @@ export const authSlice = createSlice({
       },
       registerSuccess: (state, { payload }) => {
         state.loading = false;
-        state.user = payload?.username;
+        state.user = payload?.user;
         state.token = payload?.token;
         state.error = false;
   },
