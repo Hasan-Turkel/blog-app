@@ -32,7 +32,7 @@ const useAuthCalls = () => {
       navigate("/");
       console.log(data);
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
       dispatch(fetchFail());
       toastErrorNotify(error.response.data.non_field_errors[0])
     }
