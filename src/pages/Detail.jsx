@@ -89,7 +89,7 @@ const Detail = () => {
 
     {data?.comments?.map((item)=> <div key={item.id} className="mb-2">
       <p className="m-0">{item.content}</p>
-      <p className="m-0">{item.user}</p>
+      <p className="m-0"><BsFillPersonFill className='fs-4'/>{item.user}</p>
       <p className="m-0">{new Date(item.time_stamp).toLocaleString({
                   day: "numeric",
                   month: "numeric",

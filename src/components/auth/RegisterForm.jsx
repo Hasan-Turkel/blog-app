@@ -7,17 +7,17 @@ const RegisterForm = () => {
   const loginSchema = object({
     email: string()
       .email()
-      .required(),
+      .required("Email is required"),
     password: string()
-      .required()
-      .min(8)
-      .max(16)
-      .matches(/\d+/)
-      .matches(/[a-z]/)
-      .matches(/[A-Z]/)
-      .matches(/[!,?{}><%&$#£+-.]+/),
+      .required("Password is required")
+      .min(8, "Password must be at least 8 characters.")
+      .max(16, "Password must be at least 16 characters")
+      .matches(/\d+/, "Password must contain number.")
+      .matches(/[a-z]/, "Password must contain lowercase letter.")
+      .matches(/[A-Z]/, "Password must contain uppercase letter.")
+      .matches(/[!,?{}><%&$#£+-.]+/, "Password must contain custom character."),
       username:string()
-      .required()
+      .required("Username is required.")
   });
 
   return (
