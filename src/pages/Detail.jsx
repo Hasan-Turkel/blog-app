@@ -49,7 +49,7 @@ const Detail = () => {
 
   const like = data?.likes_n?.filter((item=> item.user_id==user?.id)).length&&"text-danger"
   return (
-    <div className="container d-flex flex-column  m-5 gap-2 ">
+    <div className="container d-flex flex-column mt-5 m-auto gap-2 ">
       <img src={data.image} className="card-img-top detail-img" alt={data.title} />
    <div className="card-body ">
     <h5 className="card-title">{data.title}</h5>
