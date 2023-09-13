@@ -1,5 +1,4 @@
 import { useSelector, useDispatch } from "react-redux";
-import axios from "axios";
 import { fetchFail, fetchStart, likeSuccess } from "../features/blogSlice";
 import { useNavigate } from "react-router-dom";
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify"
@@ -9,21 +8,15 @@ const useBlogCalls = () => {
     const navigate= useNavigate()
     const { axiosWithToken } = useAxios()
  
- 
-  const BASE_URL = "https://33499.fullstack.clarusway.com/";
-  const {token} = useSelector((state)=>state.auth)
-
   const likeUnlike = async (id) => {
     dispatch(fetchStart());
     try {
-        const { data } = await axios.post(`${BASE_URL}api/likes/${id}/`,1,
-        {headers:{Authorization: `Token ${token}`
-        
-      }});
+        const { data } = await axiosWithToken.post(`api/likes/${id}/`,1,
+        );
       
       // console.log(data);
       // console.log(id);
-      dispatch(likeSuccess(data));
+      dispatch(likeSuccess());
     } catch (error) {
       // console.log(error.message);
       // console.log(id);
@@ -37,10 +30,8 @@ const useBlogCalls = () => {
   const delBlog = async (id) => {
    
     try {
-        const { data } = await axios.delete(`${BASE_URL}api/blogs/${id}/`,
-        {headers:{Authorization: `Token ${token}`
-        
-      }});
+        const { data } = await axiosWithToken.delete(`api/blogs/${id}/`,
+    );
       toastSuccessNotify("The blog has been deleted.")
       navigate(-1)
       // console.log(data);
@@ -56,10 +47,8 @@ const useBlogCalls = () => {
   const updateBlog = async (values) => {
    
     try {
-        const { data } = await axios.put(`${BASE_URL}api/blogs/${values.id}/`,values,
-        {headers:{Authorization: `Token ${token}`
-        
-      }});
+        const { data } = await axiosWithToken.put(`api/blogs/${values.id}/`,values,
+        );
       toastSuccessNotify("The blog has been updated.")
      
       // console.log(data);
