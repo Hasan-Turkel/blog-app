@@ -42,11 +42,11 @@ const Card = ({
 
 
   return (
-    <div className="card p-4" style={{ width: "300px", height: "70vh" }}>
+    <div className="card p-4" style={{ width: "300px", maxHeight: "70vh" }}>
       <img src={image} className="card-img-top h-25 card-img" alt={title} />
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
-        <p className="card-text">{content.slice(0, 50)}...</p>
+        <p className="card-text">{content.slice(0, 20)}...</p>
         <p className="card-text">
           {new Date(publish_date).toLocaleString({
             day: "numeric",
