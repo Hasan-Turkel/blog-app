@@ -1,6 +1,5 @@
-import React from "react";
+
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { BsFillPersonFill } from 'react-icons/bs';
@@ -10,22 +9,20 @@ import CommentCard from "../components/blog/CommentCard";
 import useBlogCalls from "../hooks/useBlogCalls";
 import DeleteModal from "../components/blog/DeleteModal";
 import UpdateModal from "../components/blog/UpdateModal";
+import useAxios from "../hooks/useAxios";
 
 
 
 const Detail = () => {
   const { id } = useParams();
-  const {token} = useSelector((state)=>state.auth)
   const {user} = useSelector((state)=>state.auth)
+  const {axiosWithToken} = useAxios()
 
-  const BASE_URL = "https://33499.fullstack.clarusway.com/";
   const [data, setData] = useState([]);
   const getDetailCard = async () => {
     try {
-      const { data } = await axios(`${BASE_URL}api/blogs/${id}/`, 
-      {headers:{Authorization: `Token ${token}`
-
-      }});
+      const { data } = await axiosWithToken(`api/blogs/${id}/`, 
+      );
       setData(data);
       // console.log(data);
     } catch (error) {

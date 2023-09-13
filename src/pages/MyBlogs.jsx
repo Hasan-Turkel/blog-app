@@ -1,21 +1,19 @@
-import axios from "axios";
+
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Card from "../components/blog/Card"
+import useAxios from "../hooks/useAxios";
 
 const MyBlogs = () => {
   const { user } = useSelector((state) => state.auth);
-  const { token } = useSelector((state) => state.auth);
   const navigate = useNavigate()
+  const {axiosWithToken} = useAxios()
 
-  const BASE_URL = "https://33499.fullstack.clarusway.com/";
   const [data, setData] = useState([]);
   const getMyBlogs = async () => {
     try {
-      const { data } = await axios(`${BASE_URL}api/blogs?author=${user.id}`, {
-        headers: { Authorization: `Token ${token}` },
-      });
+      const { data } = await axiosWithToken(`api/blogs?author=${user.id}`);
       setData(data);
       // console.log(data);
     } catch (error) {

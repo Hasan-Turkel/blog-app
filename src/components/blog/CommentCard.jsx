@@ -1,37 +1,17 @@
 import { Formik, Form, Field } from "formik";
-import axios from "axios";
-import { useSelector } from "react-redux";
-import { toastErrorNotify, toastSuccessNotify } from "../../helper/ToastNotify"
+import useBlogCalls from "../../hooks/useBlogCalls";
+
 const CommentCard = ({id, getDetailCard}) => {
-const {token} = useSelector((state)=>state.auth)
-  const BASE_URL = "https://33499.fullstack.clarusway.com/";
 
-  const sendComment = async (values) => {
+  const { sendComment } = useBlogCalls();
 
-    try {
-      const { data } = await axios.post(`${BASE_URL}api/comments/${id}/`, values, 
-      {headers:{Authorization: `Token ${token}`,
-      
-
-      }});
-      toastSuccessNotify("Comment has been sent.")
-      console.log(data);
-    } catch (error) {
-      console.log(error.message);
-      toastErrorNotify("Sendin comment failed.")
-    }
-  };
-
-
-
-  
   return <div className="auth-form ">
   <Formik
     initialValues={{
      content:""
     }}
     onSubmit={(values, action) => {
-    sendComment({...values, post:id});
+    sendComment({...values, post:id}, id);
     action.resetForm();
     action.setSubmitting(false);
     setTimeout(() => {
@@ -39,7 +19,7 @@ const {token} = useSelector((state)=>state.auth)
 }, 1000);
     
       
-      console.log(values);
+      // console.log(values);
     }}
   >
     {({

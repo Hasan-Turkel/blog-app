@@ -3,10 +3,11 @@ import axios from "axios";
 import { fetchFail, fetchStart, likeSuccess } from "../features/blogSlice";
 import { useNavigate } from "react-router-dom";
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify"
-
+import useAxios from "./useAxios"
 const useBlogCalls = () => {
     const dispatch = useDispatch();
     const navigate= useNavigate()
+    const { axiosWithToken } = useAxios()
  
  
   const BASE_URL = "https://33499.fullstack.clarusway.com/";
@@ -72,7 +73,35 @@ const useBlogCalls = () => {
     }
   };
 
-  return {likeUnlike, delBlog, updateBlog};
+  const sendComment = async (values, id) => {
+
+    try {
+      const { data } = await axiosWithToken.post(`api/comments/${id}/`, values 
+     );
+      toastSuccessNotify("Comment has been sent.")
+      console.log(data);
+    } catch (error) {
+      console.log(error.message);
+      toastErrorNotify("Sendin comment failed.")
+    }
+  };
+
+  const sendBlog = async (values) => {
+
+    try {
+      const { data } = await axiosWithToken.post(`api/blogs/`, values, 
+      );
+      toastSuccessNotify("The blog has been created.")
+      navigate("/my-blogs")
+      // console.log(data);
+    } catch (error) {
+      // console.log(error.message);
+      toastErrorNotify("Creating blog failed.")
+    }
+  };
+
+
+  return {likeUnlike, delBlog, updateBlog, sendComment, sendBlog };
 };
 
 export default useBlogCalls;

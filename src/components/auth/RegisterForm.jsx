@@ -3,11 +3,9 @@ import { object, string } from "yup";
 import useAuthCalls from "../../hooks/useAuthCalls";
 
 const RegisterForm = () => {
-    const {register} = useAuthCalls()
+  const { register } = useAuthCalls();
   const loginSchema = object({
-    email: string()
-      .email()
-      .required("Email is required"),
+    email: string().email().required("Email is required"),
     password: string()
       .required("Password is required")
       .min(8, "Password must be at least 8 characters.")
@@ -16,23 +14,22 @@ const RegisterForm = () => {
       .matches(/[a-z]/, "Password must contain lowercase letter.")
       .matches(/[A-Z]/, "Password must contain uppercase letter.")
       .matches(/[!,?{}><%&$#£+-.]+/, "Password must contain custom character."),
-      username:string()
-      .required("Username is required.")
+    username: string().required("Username is required."),
   });
 
   return (
     <div className="container auth-form">
-      <Formik 
+      <Formik
         initialValues={{
           username: "",
           email: "",
-          password: ""
+          password: "",
         }}
         validationSchema={loginSchema}
         onSubmit={(values, action) => {
-            register({...values, password2:values.password})
-            action.resetForm()
-            action.setSubmitting(false)
+          register({ ...values, password2: values.password });
+          action.resetForm();
+          action.setSubmitting(false);
         }}
       >
         {({
@@ -45,7 +42,7 @@ const RegisterForm = () => {
           isSubmitting,
           /* and other goodies */
         }) => (
-          <Form onSubmit={handleSubmit} >
+          <Form onSubmit={handleSubmit}>
             <label htmlFor="username" className="form-label fw-bolder mt-5">
               Username*
             </label>
@@ -84,7 +81,11 @@ const RegisterForm = () => {
             />
             <h3>{errors.password && touched.password && errors.password}</h3>
 
-            <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
+            <button
+              type="submit"
+              className="btn btn-primary"
+              disabled={isSubmitting}
+            >
               Register
             </button>
           </Form>
