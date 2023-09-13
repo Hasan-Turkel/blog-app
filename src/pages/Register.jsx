@@ -8,6 +8,7 @@ const Register = () => {
   return (<>
    <RegisterForm/>
    <p className='text-center mt-3'>Do you already have an account? <span className='text-danger' role='button' onClick={()=>navigate("/login")}>Sign In</span></p>
+   <div className='empty-div'></div>
   
   </>
    

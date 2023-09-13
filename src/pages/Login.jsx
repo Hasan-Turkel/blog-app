@@ -8,7 +8,8 @@ const Login = () => {
   return (
     <>
     <LoginForm/>
-    <p className='text-center mt-3'>Don't you have an account? <span className='text-danger' role='button' onClick={()=>navigate("/register")}>Sign Up</span></p>
+    <p className='text-center'>Don't you have an account? <span className='text-danger' role='button' onClick={()=>navigate("/register")}>Sign Up</span></p>
+    <div className='empty-div'></div>
   </>)
 }
 
